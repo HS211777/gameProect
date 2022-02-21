@@ -1,6 +1,6 @@
 package com.company;
 
-public class Buildings { // all need to use up resources
+public class Buildings { // all need to use up resources and other requirements
     public static void placeHouse(int x, int y) {
         Tiles myTile = GameBoard.searchGrid(x, y);
         if (myTile.getType() == 0 && myTile.isLight()) {
@@ -12,7 +12,12 @@ public class Buildings { // all need to use up resources
 
     public static void placeLight(int x, int y) {
         Tiles myTile = GameBoard.searchGrid(x, y);
-        if (myTile.getType() == 0 && myTile.isLight()) {
+        int NumGens = GameBoard.getNumTiles(3);
+        int NumLights = GameBoard.getNumTiles(3);
+        if (NumGens >= NumLights){
+            System.out.println("cannot place, not enough generators");
+        }
+        else if (myTile.getType() == 0 && myTile.isLight()) {
             myTile.setType(5);
         } else {
             System.out.println("cannot place");
