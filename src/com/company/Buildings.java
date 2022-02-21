@@ -19,6 +19,18 @@ public class Buildings { // all need to use up resources and other requirements
         }
         else if (myTile.getType() == 0 && myTile.isLight()) {
             myTile.setType(5);
+            for (int i = 0; i < 4; i++){
+                for (int j = 0; j < 4; j++){
+                    Tiles myTile1 = GameBoard.searchGrid(x+i, y+j);
+                    Tiles myTile2 = GameBoard.searchGrid(x-i, y+j);
+                    Tiles myTile3 = GameBoard.searchGrid(x+i, y-j);
+                    Tiles myTile4 = GameBoard.searchGrid(x-i, y-j);
+                    myTile1.setLight(true);
+                    myTile2.setLight(true);
+                    myTile3.setLight(true);
+                    myTile4.setLight(true);
+                }
+            }
         } else {
             System.out.println("cannot place");
         }
