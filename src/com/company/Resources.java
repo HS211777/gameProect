@@ -76,4 +76,5 @@ public class Resources {
     public void setStarving(boolean starving) {
         this.starving = starving;
     }
+
 }
